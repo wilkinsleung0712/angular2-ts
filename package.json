@@ -20,7 +20,7 @@
     "test:once": "karma start karma.conf.js --single-run",
     "lint": "tslint ./src/**/*.ts -t verbose"
   },
-  "keywords": ['Wilkins Liang'],
+  "keywords": [],
   "author": "",
   "license": "BFD",
   "dependencies": {
