@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';// <-- NgModel lives here
 
 import { AppComponent }  from './app.component';
+import {HeroDetailComponent} from './hero-detail.component';
 
 
 // Defines AppModule, the root module that tells Angular how to assemble the application.
@@ -20,7 +21,7 @@ import { AppComponent }  from './app.component';
   imports:      [ BrowserModule,
                   FormsModule // <-- import the FormsModule before binding with [(ngModel) ],
                 ],
-  declarations: [ AppComponent ],
+  declarations: [ AppComponent,HeroDetailComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
