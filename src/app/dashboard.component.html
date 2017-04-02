@@ -1,0 +1,17 @@
+<h3>Top Heroes</h3>
+<div class="grid grid-pad">
+  <!-- *ngFor is used again to iterate over a list of heroes and display their
+  names. The extra <div> elements will help with styling later. -->
+
+  <!-- Notice the [routerLink] binding. As described in the Router links section
+  of this page, top-level navigation in the AppComponent template has router links
+   set to fixed paths of the destination routes, "/dashboard" and "/heroes". -->
+
+   <!-- The two array items align with the path and :id token in the parameterized
+        hero detail route definition that you added to app.module.ts earlier -->
+        <a *ngFor="let hero of heroes"  [routerLink]="['/detail', hero.id]"  class="col-1-4">
+          <div class="module hero">
+            <h4>{{hero.name}}</h4>
+          </div>
+        </a>
+</div>

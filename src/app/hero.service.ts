@@ -19,4 +19,10 @@ export class HeroService {
       setTimeout(() => resolve(this.getHeroes()), 2000);
     });
   };
+
+  getHero(id:number):Promise<Hero>{
+    //把从getHeroes()得到的result叫heroes 然后通过 => 放进方法里面 条用 heroes.find 方法找到id一样的object
+    return this.getHeroes().then(
+      heroes => heroes.find(hero => hero.id === id));
+  }
 }
