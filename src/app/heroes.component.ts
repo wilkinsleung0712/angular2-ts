@@ -11,17 +11,22 @@ import {Hero} from './hero';
   selector: 'my-heroes',
   // module-relative address of this component's HTML template
   template: `
+              <h2>My Heroes</h2>
               <ul class="heroes">
                <li *ngFor="let hero of heroes" (click)="onSelected(hero)" [class.selectedHero]="hero === selectedHero">
                <span class="badge">{{hero.id}}</span> {{hero.name}}
                </li>
               </ul>
               <hr/>
-              <!-- Add a <hero-detail> element near the bottom of the AppComponent template, where the hero detail view used to be.
-                  Coordinate the master AppComponent with the HeroDetailComponent by binding the selectedHero property of the AppComponent to the hero property of the HeroDetailComponent
-                  Now every time the selectedHero changes, the HeroDetailComponent gets a new hero to display.-->
-              <hero-detail [hero]="selectedHero"><hero-detail>
-            `,
+              <div *ngIf="selectedHero">
+                {{selectedHero.name | uppercase}} is my hero
+                <button (click)="gotoDetail()"> View Detail</button>
+              </div>
+             `,
+            // <!-- Add a <hero-detail> element near the bottom of the AppComponent template, where the hero detail view used to be.
+            //     Coordinate the master AppComponent with the HeroDetailComponent by binding the selectedHero property of the AppComponent to the hero property of the HeroDetailComponent
+            //     Now every time the selectedHero changes, the HeroDetailComponent gets a new hero to display.-->
+            // <hero-detail [hero]="selectedHero"><hero-detail>
   styles: [`
     .selected {
       background-color: #CFD8DC !important;
