@@ -9,3 +9,12 @@
   {{selectedHero.name | uppercase}} is my hero
   <button (click)="gotoDetail()"> View Detail</button>
 </div>
+
+<div>
+  <label>Hero name:</label> <input #heroName />
+  <!-- In response to a click event, call the component's click handler and then
+       clear the input field so that it's ready for another name. -->
+  <button (click)="add(heroName.value); heroName.value=''">
+    Add
+  </button>
+</div>

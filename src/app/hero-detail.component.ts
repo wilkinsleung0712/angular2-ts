@@ -53,4 +53,8 @@ export class HeroDetailComponent implements OnInit {
   //  stack using the Location service you injected previously.
    this.location.back();
  }
+
+ save():void{
+   this.heroService.saveHero(this.hero).then(()=>this.goBack());
+ }
 }

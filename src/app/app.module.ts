@@ -13,6 +13,12 @@ import {HeroService} from './hero.service';
 
 import {AppRoutingModule} from './app-routing.module';
 
+import {HttpModule} from '@angular/http';
+
+// Imports for loading & configuring the in-memory web api
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+
 
 // Defines AppModule, the root module that tells Angular how to assemble the application.
 // Right now it declares only the AppComponent. Soon there will be more components to declare.
@@ -51,8 +57,12 @@ import {AppRoutingModule} from './app-routing.module';
                   //   path:'detail/:id',
                   //   component:HeroDetailComponent
                   // }])
-                  AppRoutingModule
-                ],
+                  AppRoutingModule,
+                  HttpModule,
+                  //The forRoot() configuration method takes an InMemoryDataService class that primes the in-memory database.
+                  //  Add the file in-memory-data.service.ts
+                  InMemoryWebApiModule.forRoot(InMemoryDataService)
+                  ],
   providers:[HeroService], //Add HeroService to the providers array of AppModule because you'll need it in every other view.
   declarations: [ AppComponent,HeroDetailComponent,HeroesComponent,DashboardComponent ],
   bootstrap:    [ AppComponent ]
