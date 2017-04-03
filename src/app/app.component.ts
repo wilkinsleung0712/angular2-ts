@@ -15,12 +15,8 @@ import {Component} from '@angular/core'
   //  you can confirm that '/heroes' is the path of the route to the HeroesComponent.
   selector: 'my-app',
   // The <nav> tags don't do anything yet, but they'll be useful later when you style the links.
-  template: `<h1>{{title}}</h1>
-             <nav>
-             <a routerLink="/dashboard">Dashboard</a>
-             <a routerLink="/heroes">Heroes</a>
-             </nav>
-             <router-outlet></router-outlet>`
+  templateUrl:'./app.component.html' ,
+  styleUrls:['./app.component.css']
 })
 export class AppComponent {
   title = 'Tour of Heroes';
