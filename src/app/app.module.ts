@@ -18,6 +18,8 @@ import {HttpModule} from '@angular/http';
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
+import {HeroSearchService} from "./hero-search.service";
+import {HeroSearchComponent} from "./hero-search-component";
 
 
 // Defines AppModule, the root module that tells Angular how to assemble the application.
@@ -63,8 +65,8 @@ import { InMemoryDataService }  from './in-memory-data.service';
                   //  Add the file in-memory-data.service.ts
                   InMemoryWebApiModule.forRoot(InMemoryDataService)
                   ],
-  providers:[HeroService], //Add HeroService to the providers array of AppModule because you'll need it in every other view.
-  declarations: [ AppComponent,HeroDetailComponent,HeroesComponent,DashboardComponent ],
+  providers:[HeroService,HeroSearchService], //Add HeroService to the providers array of AppModule because you'll need it in every other view.
+  declarations: [ AppComponent,HeroDetailComponent,HeroesComponent,DashboardComponent ,HeroSearchComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

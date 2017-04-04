@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'; // must declear to be able to inject into component
 import {Hero} from './hero';
 //import Http module
-import {Http} from '@angular/http';
+import {Http,Headers} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 // Injectable services
 // Notice that you imported the Angular Injectable function and applied that function as an @Injectable() decorator.
@@ -66,5 +66,14 @@ export class HeroService {
                         .toPromise()
                         .then(res =>res.json().data as Hero)
                         .catch(this.handleError);
+  }
+
+  deleteHero(hero: Hero):Promise<null> {
+    const url = `${this.heroesUrl}/${hero.id}`;
+    return this.http.delete(url,
+                            this.headers)
+                    .toPromise()
+                    .then(()=>null)
+                    .catch(this.handleError);
   }
 }

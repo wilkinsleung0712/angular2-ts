@@ -66,4 +66,15 @@ export class HeroesComponent implements OnInit  {
         this.selectedHero = null;
       });
   }
+
+  delete(hero:Hero):void{
+    this.heroService.deleteHero(hero).then(()=>{
+      // delete local storage for all list rather than send another getHeroes request.
+      this.heroes = this.heroes.filter(aHero=>aHero !== hero);
+      // clear preselected hero
+      if(this.selectedHero === hero){
+        this.selectedHero = null;
+      }
+    });
+  }
 }
